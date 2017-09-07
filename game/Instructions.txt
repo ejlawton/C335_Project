@@ -1,0 +1,6 @@
+Controls
+
+Joystick: Move
+Z: Toggle Flag
+C: Detonate!
+Press the User Button to return to Start Screen

@@ -1,0 +1,52 @@
+#include <stm32f30x.h>
+#include <stm32f30x_gpio.h>
+#include <stm32f30x_rcc.h>
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include "board.h"
+
+int x, y, i = 0, new_x = 3, new_y = 3;
+void board_init(void){
+  printf("init\n"); 
+   for(x = 0; x < 8; x++){
+     for(y = 0; y < 8; y++){
+       tile_t temp = *BOARD.tiles[x][y];
+       temp.mine_flag = 0;
+       temp.count = 0;
+       temp.revealed = 0;
+       temp.x_pos = new_x;
+       temp.y_pos = new_y;
+       BOARD.tiles[x][y] = &temp;
+       //printf("Current X: %d, | Current Y: %d | Current Tile: [%d][%d]\n", new_x, new_y, x,y); 
+       new_y+= 15; 
+     }
+     new_y = 3; 
+     new_x+=15;
+   }
+       
+   bomb_generator();
+}
+
+void bomb_generator(void){ 
+  
+  
+  int count = 0, random_x, random_y;
+
+  while(count < 10){
+    random_x = rand() % 8;
+    random_y = rand() % 8;
+
+    tile_t temp = *BOARD.tiles[random_x][random_y]; 
+  
+    if(!temp.mine_flag){
+      temp.mine_flag = 1;
+      count++;
+      printf("Mine #%d placed at [%d][%d] ||||| mine_flag = %d\n", count, random_y, random_x, temp.mine_flag);
+      BOARD.tiles[random_x][random_y] = &temp;
+    }
+  }
+  
+  
+}
+

@@ -1,0 +1,65 @@
+Final Project: Mine Sweeper
+
+=====================================================
+Project Requirements:
+    LCD
+    Audio
+    User Input (1 or more device)
+        Nunchuk
+        Board Accel, Gyro, or Mag
+    SD Card
+=====================================================
+
+What the game should do:
+
+Create and initialize a board of tiles (board.c)
+populate the board with mines (board.c)
+
+Screen:
+Display board on the screen (board.c)
+Display and update individual tiles on the screen
+Highlight selected tile on screen
+Display tiles: Blank, 1-8, flag, hidden
+Display pregame/rule screen
+Display exploding screen
+Display winning/losing screens?
+Display number of mines left to flag
+
+Game play:
+select different tiles (game_play.c)
+flag/unflag tiles	 (game_play.c)
+win/lose
+use nunchuk to select tile
+reveal tiles(game_play.c)
+chain reveal	     (game_play.c)
+start game
+end/restart game?
+
+Sound:
+Mine explosion
+flag blip?
+reveal blip?
+
+
+What we definately have done so far:
+
+Create and initialize a board of tiles
+Populate the board with mines
+
+
+Bugs/Errors:
+
+Random not working; need it for mine placing//sort of fixed
+Have to shake the board to get random numbers
+
+Fixed bugs/errors
+Board not updating tile info in array (removed pointers)
+
+==================================================
+Game Play Instructions:
+
+Move selected tile: Nunchuk  Joystick (up/down/left/right)
+Flag tile: Nunchuk Z
+Reveal tile: Nunchuk C
+Win: reveal all tiles that aren't mines
+Lose: reveal a mine
