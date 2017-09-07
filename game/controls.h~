@@ -1,7 +1,0 @@
-
-int CSCREEN;
-
-
-void play_game(void);
-void exit_game(int state);
-void spam(void);
